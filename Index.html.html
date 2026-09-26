@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Conversor do Bolsonaro 🇧🇷</title>
+    <link rel="stylesheet" href="s.css">
+</head>
+<body>
+    <div class="titulo">
+    <h1>Conversor de Dólar: do Bolsonaro patriota.</h1>
+    </div>
+    <div class="bloco">
+        <div class="input">
+    <input placeholder="Valor em Reais" type="number">
+        </div>
+        <div class="botao">
+    <button onclick="converte()">Converter</button>
+        </div>
+
+        <p class="resultado"id="resultado"></p>
+    </div>
+    <audio id="somDolar" src="sons/dólar.mp3"></audio>
+    <audio id="somBolsonaro" src="sons/fundomusical.mp3"></audio>
+
+    <div class="controles-som">
+    <button id="botaoSom">Som Muito Bom</button>
+    <button id="botaoDolar">💵 Dólar</button>
+    </div>
+    <script>
+        const valorReal = document.querySelector("input")
+
+        function converte(){
+            const valorConvertido = valorReal.value / 5
+
+            const somDolar = document.querySelector("#somDolar")
+            const somBolsonaro = document.querySelector("#somBolsonaro")
+            const botaoSom = document.querySelector("#botaoSom")
+            const botaoDolar = document.querySelector("#botaoDolar")
+            const resultado = document.querySelector("#resultado")
+
+            somDolar.play()
+
+            resultado.textContent = `O patriota informa que o valor em dólar é ${valorConvertido}`
+        }
+
+        botaoSom.addEventListener("click", function(){
+
+            if (somBolsonaro.paused) {
+                somBolsonaro.play()
+                botaoSom.textContent = "🔊 Bolsonaro"
+            } else {
+                somBolsonaro.pause()
+                botaoSom.textContent = "🔇 Bolsonaro"
+            }
+        })
+
+        botaoDolar.addEventListener("click", function(){
+             if (somDolar.paused) {
+                somDolar.play()
+                botaoDolar.textContent = "💵 Dólar"
+            } else {
+                somDolar.pause()
+                botaoDolar.textContent = "🔇 Dólar"
+    }
+})
+    </script>
+    <footer>
+        <p>&copy; 2026 By Luquinhas1234. Todos os direitos reservados. GitHub: GabrielDevx</p>
+    </footer>
+</body>
+</html>
